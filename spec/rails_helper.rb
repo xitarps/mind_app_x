@@ -31,6 +31,10 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+
+  # implement 'login_as user, scope: :user' for example
+  config.include Warden::Test::Helpers
+  
   # Factory bot
   config.include FactoryBot::Syntax::Methods
 
