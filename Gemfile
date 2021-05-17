@@ -36,6 +36,9 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0.0'
   # Rspec require this from ruby 3.0 - https://github.com/ruby/rexml
   gem 'rexml'
+
+  # Object generator for testing - https://github.com/thoughtbot/factory_bot_rails
+  gem 'factory_bot_rails'
 end
 
 group :development do
