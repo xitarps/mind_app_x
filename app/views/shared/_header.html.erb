@@ -1,0 +1,7 @@
+<h1>Mind App</h1>
+
+<% if user_signed_in? %>
+  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+<% end %>
+
+<hr class="hr_custom_divisor">
