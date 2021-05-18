@@ -3,14 +3,14 @@ require 'rails_helper'
 RSpec.describe Content, type: :model do
   context "Create" do
     it 'successfully' do
-      user = User.create(email: 'tester@tester.com', password:'123456')
+      user = FactoryBot.create(:user)
 
       content = user.contents.new(title: 'Titulo de teste', description: 'descricao de teste')
       expect(content.valid?).to be_truthy
     end
 
     it 'failure - title can\'t be blank' do
-      user = User.create(email: 'tester@tester.com', password:'123456')
+      user = FactoryBot.create(:user)
 
       content = user.contents.new(title: '', description: 'descricao sem titulo')
 
@@ -18,7 +18,7 @@ RSpec.describe Content, type: :model do
     end
 
     it 'failure - description can\'t be blank' do
-      user = User.create(email: 'tester@tester.com', password:'123456')
+      user = FactoryBot.create(:user)
 
       content = user.contents.new(title: 'titulo sem descricao', description: '')
 

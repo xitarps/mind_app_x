@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe TagContent, type: :model do
   context "Create" do
     it 'successfully' do
-      user = User.create(email: 'tester@tester.com', password:'123456')
+      user = FactoryBot.create(:user)
 
       tag = user.tags.new(name: 'Ruby')
       content = user.contents.new(title: 'Titulo de teste', description: 'descricao de teste')
@@ -14,7 +14,7 @@ RSpec.describe TagContent, type: :model do
     end
 
     it 'failure - content must exist' do
-      user = User.create(email: 'tester@tester.com', password:'123456')
+      user = FactoryBot.create(:user)
 
       tag = user.tags.new(name: 'Ruby')
 
@@ -27,7 +27,7 @@ RSpec.describe TagContent, type: :model do
     end
 
     it 'failure - tag must exist' do
-      user = User.create(email: 'tester@tester.com', password:'123456')
+      user = FactoryBot.create(:user)
 
       content = user.contents.new(title: 'Titulo de teste', description: 'descricao de teste')
 
