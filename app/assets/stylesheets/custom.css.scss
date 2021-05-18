@@ -122,5 +122,8 @@ input[type='submit'] {
 input[type='submit']:hover {
   box-shadow: 1px 1px 8px var(--custom_green);
   border-bottom: 2px solid black;
-
+}
+.email {
+  color: var(--custom_green);
+  text-shadow: 0 5px 5px rgb(0, 0, 0);
 }

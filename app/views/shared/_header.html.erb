@@ -1,6 +1,9 @@
 <h1>Mind App</h1>
 
 <% if user_signed_in? %>
+  <p class="email">
+    <%= current_user.email %>
+  </p>
   <nav>
     <%= link_to 'Home', root_path %> | 
     <%= link_to 'Contents', contents_path %> | 
