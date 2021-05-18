@@ -1,20 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+:root {
+  --custom_orange: rgb(255, 94, 0);
+  --custom_red: rgb(255, 0, 0);
+  --custom_green: rgb(30, 255, 0);
+  --custom_blue: rgb(0, 102, 255);
+}
+
 * {
   font-family: 'Roboto', sans-serif;
 }
 html, body {
   padding: 0;
   margin: 0;
+  color: #fff;
 }
 body {
-  background-color: rgb(231, 231, 231);
+  background-color: rgb(41, 41, 41);
+}
+h1 {
+  color: var(--custom_orange);
+  text-shadow: 0 5px 5px rgb(0, 0, 0);
+}
+h3 {
+  color: var(--custom_orange);
+  text-shadow: 0 5px 5px rgb(0, 0, 0);
+}
+a {
+  text-decoration: none;
+  color: #fff;
+  text-shadow: 0 5px 5px rgb(0, 0, 0);
+  transition: 1s;
+}
+a:hover {
+  color: var(--custom_green)
+}
+.main_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 90%;
 }
 .hr_custom_divisor{
   width: 90vw;
@@ -32,12 +64,63 @@ form{
   border-radius: 8px;
   border: 1px solid black;
   color: white;
+  margin: 2px;
 }
-.alert {
+.alert {  
   background-color: rgba(255, 0, 0, 0.356);
-  border: 2px solid rgba(255, 0, 0, 0.486);
+  border: 1px solid rgba(255, 0, 0, 0.486);
 }
 .notice {
-  background-color: rgba(0, 4, 255, 0.356);
-  border: 2px solid rgba(0, 4, 255, 0.486);
+  background-color: rgba(0, 153, 255, 0.356);
+  border: 1px solid rgba(0, 153, 255, 0.486);
+}
+.error{
+  background-color: rgba(255, 0, 0, 0.452);
+  border: 1px solid rgba(255, 0, 0, 0.685);
+}
+.item {
+  border-radius: 10px;
+  display: flex;
+  min-width: 160px;
+  max-width: 425px;
+  flex: 1 0 20%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(51, 51, 51);
+  padding: 2px;
+  margin: 2px;
+}
+.gallery_container {
+  width: 90%;
+ display: flex;
+ flex-wrap: wrap;
+}
+input[type='text'], textarea {
+  background-color: rgb(26, 26, 26);
+  border: 0;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  color: var(--custom_blue);
+  outline: none;
+}
+input[type='text']:focus, textarea:focus{
+  box-shadow: 2px 2px 8px rgb(79, 66, 252);
+}
+input[type='submit'] {
+  background-color: var(--custom_green);
+  color: black;
+  border: 0;
+  border-radius: 5px;
+  display: flex;
+  width: 100%;
+  font-size: 1em;
+  margin: 5px;
+  padding: 2px;
+}
+input[type='submit']:hover {
+  box-shadow: 1px 1px 8px var(--custom_green);
+  border-bottom: 2px solid black;
+
 }

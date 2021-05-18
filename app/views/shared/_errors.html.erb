@@ -1,0 +1,5 @@
+<% if custom_object.errors.any? %>
+  <% custom_object.errors.full_messages.each do |message| %>
+    <span class="error custom_msg"><%= message %> !!</span>
+  <% end %>
+<% end %>
