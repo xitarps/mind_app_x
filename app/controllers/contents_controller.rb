@@ -1,5 +1,7 @@
 class ContentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :fetch_content, only: %i[show edit update destroy]
+
   def index
     @contents = Content.all
   end
@@ -17,15 +19,12 @@ class ContentsController < ApplicationController
   end
 
   def show
-    @content = current_user.contents.find(params[:id])
   end
 
   def edit
-    @content = current_user.contents.find(params[:id])
   end
 
   def update
-    @content = current_user.contents.find(params[:id])
 
     return redirect_to @content, notice: 'Saved successfully' if @content.update(content_params)
 
@@ -33,7 +32,6 @@ class ContentsController < ApplicationController
   end
 
   def destroy
-    @content = current_user.contents.find(params[:id])
 
     return redirect_to contents_path, notice: 'Deleted successfully' if @content.destroy
 
@@ -45,5 +43,9 @@ class ContentsController < ApplicationController
 
   def content_params
     params.require(:content).permit(:title, :description)
+  end
+
+  def fetch_content
+    @content = current_user.contents.find(params[:id])
   end
 end
