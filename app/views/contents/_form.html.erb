@@ -1,11 +1,18 @@
 <%= form_with model: content, local: true  do |f| %>
-    <%= f.label :title, 'Title:' %>
-    <%= f.text_field :title %>
+  <%= f.label :title, 'Title:' %>
+  <%= f.text_field :title %>
 
-    <%= f.label :description, 'Description:' %>
-    <%= f.text_area :description %>
+  <%= f.label :description, 'Description:' %>
+  <%= f.text_area :description %>
+
+  <select class="select2 form-control" multiple="multiple">
+    <option selected="selected">orange</option>
+    <option>white</option>
+    <option selected="selected">purple</option>
+  </select>
 
   <p>
     <%= f.submit %>
   </p>
 <% end %>
+

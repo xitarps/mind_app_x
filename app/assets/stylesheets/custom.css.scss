@@ -127,3 +127,7 @@ input[type='submit']:hover {
   color: var(--custom_green);
   text-shadow: 0 5px 5px rgb(0, 0, 0);
 }
+.select2-container {
+ color: black;
+ width: 200px !important;
+}
