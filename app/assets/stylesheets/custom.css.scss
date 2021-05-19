@@ -48,6 +48,44 @@ a:hover {
   flex-direction: column;
   width: 90%;
 }
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 90%;
+}
+.header_nav_container{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 50%;
+  padding-top: 5px;
+}
+.header_nav_container label {
+  flex: 0 1 auto;
+}
+input[type="text"], textarea {
+	margin: 8px 0 5px 0px !important;
+}
+.header_nav_item_left{
+  margin: 0 50px 0 0;
+}
+.header_nav_item_right{
+  flex: 4;
+  margin: 0 0 0 50px;
+}
+.search_submit_btn, .search_submit_txt{
+  flex: 1;
+  margin: 0 5px;
+}
+.search_query_txt{
+  flex: 1 1;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
 .hr_custom_divisor{
   width: 90vw;
   color: rgba(0, 0, 0, 0.13);

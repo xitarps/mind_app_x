@@ -9,7 +9,7 @@ class Content < ApplicationRecord
 
   def update_tags(tags_params)
     mapped_tags = tags_params.map do |tag_name|
-      self.user.tags.where(name: tag_name).first_or_initialize
+      self.user.tags.where(name: tag_name.downcase).first_or_initialize
     end
     self.tags = mapped_tags
   end

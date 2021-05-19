@@ -5,7 +5,6 @@
 </p>
 
 <div class="gallery_container">
-  
   <% @contents.each do |content| %>
     <span class="item">
       <p>
@@ -28,12 +27,11 @@
       </p>
       <p>
         <%= link_to  "Details", content %> - 
-     
+    
         <%= link_to  "Edit", edit_content_path(content) %> - 
 
         <%= link_to  "Delete", content, method: :delete, data: { confirm: 'Are you sure?' } %>
       </p>
     </span>
   <% end %>
-  
 </div>

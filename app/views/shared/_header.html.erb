@@ -1,14 +1,25 @@
-<h1>Mind App</h1>
+<div class="header_container">
+  <span class="header_nav_container">
+    <h1 class="header_nav_item_left">Mind App</h1>
 
-<% if user_signed_in? %>
-  <p class="email">
-    <%= current_user.email %>
-  </p>
-  <nav>
-    <%= link_to 'Home', root_path %> | 
-    <%= link_to 'Contents', contents_path %> | 
-    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-  </nav>
-<% end %>
+    <% if user_signed_in? %>
+      <p class="email header_nav_item_left">
+        <%= current_user.email %>
+      </p>
+      <nav class="header_nav_item_left">
+        <%= link_to 'Home', root_path %> | 
+        <%= link_to 'Contents', contents_path %> | 
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      </nav>
+    <% end %>
+  </span>
+
+  <%= form_with url: contents_path, method: :get, class: "header_nav_container" do |f| %>
+      <%= f.label :query, 'Pesquisa:', class: "header_nav_item_right search_submit_txt" %>
+      <%= f.text_field :query, class: "header_nav_item_right search_query_txt"%>
+
+      <%= f.submit 'Buscar', class: "header_nav_item_right search_submit_btn" %>
+  <% end %>
+</div>
 
 <hr class="hr_custom_divisor">

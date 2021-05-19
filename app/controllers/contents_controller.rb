@@ -3,7 +3,18 @@ class ContentsController < ApplicationController
   before_action :set_content, only: %i[show edit update destroy]
 
   def index
-    @contents = Content.all
+    @contents = current_user.contents
+
+    tag_names = params[:query].split(' ') if params[:query].present?
+    
+    if tag_names.present?
+      # excactly the searched text
+      # @contents = @contents.joins(:tags).where(tags: { name: tag_names }).distinct
+
+      # containing something like the searched text
+      @contents = @contents.joins(:tags).where('name ILIKE ANY (array[?])', tag_names.map {|name| "%#{name}%" }  ).distinct
+    end
+    flash.now[:alert] = 'Oops, nada para mostrar no momento' if @contents.empty?
   end
 
   def new
