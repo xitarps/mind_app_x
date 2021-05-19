@@ -18,6 +18,13 @@
           Description:
         </h3>
         <%= content.description.truncate(30)%>
+
+        <h3>
+          Tags:
+        </h3>
+        
+        <%= content.tags.pluck(:name).join " | " %>
+        
       </p>
       <p>
         <%= link_to  "Details", content %> - 

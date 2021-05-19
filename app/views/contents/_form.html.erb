@@ -5,11 +5,18 @@
   <%= f.label :description, 'Description:' %>
   <%= f.text_area :description %>
 
+<!--
   <select class="select2 form-control" multiple="multiple">
     <option selected="selected">orange</option>
     <option>white</option>
     <option selected="selected">purple</option>
   </select>
+
+  <%= collection_select(:tag, :tag_id, Tag.all, :id, :name) %>
+-->
+
+  <%= f.label :tags, 'Tags:' %>
+  <%= f.select :tags, options_for_select(current_user.tags.pluck(:name), content.tags.pluck(:name)), {}, { class: "select2 form-control", multiple: 'multiple' } %>
 
   <p>
     <%= f.submit %>

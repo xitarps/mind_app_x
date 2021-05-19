@@ -1,6 +1,6 @@
 class ContentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :fetch_content, only: %i[show edit update destroy]
+  before_action :set_content, only: %i[show edit update destroy]
 
   def index
     @contents = Content.all
@@ -13,9 +13,11 @@ class ContentsController < ApplicationController
   def create
     @content = current_user.contents.new(content_params)
 
-    return redirect_to @content, notice: 'Saved successfully' if @content.save
-
-    render :new
+    if @content.save && @content.update_tags(tags_params)
+      redirect_to @content, notice: 'Saved successfully'
+    else
+      render :new
+    end
   end
 
   def show; end
@@ -23,10 +25,13 @@ class ContentsController < ApplicationController
   def edit; end
 
   def update
+    if @content.update(content_params) && @content.update_tags(tags_params)
 
-    return redirect_to @content, notice: 'Saved successfully' if @content.update(content_params)
+      redirect_to @content, notice: 'Saved successfully' 
 
-    render :new
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -43,7 +48,11 @@ class ContentsController < ApplicationController
     params.require(:content).permit(:title, :description)
   end
 
-  def fetch_content
+  def tags_params
+    params.require(:content).permit(tags: [])[:tags].reject(&:blank?)
+  end
+
+  def set_content
     @content = current_user.contents.find(params[:id])
   end
 end
