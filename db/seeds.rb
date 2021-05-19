@@ -9,4 +9,4 @@ User.create(email: 'tester@tester.com', password: '123456')
 
 User.first.contents.create(title: 'A nice title', description: 'What an awsome description can be put inside here?')
 
-Content.first.tags.create(name: 'Ruby', user: User.first)
+Content.first.tags.create(name: 'ruby', user: User.first)
