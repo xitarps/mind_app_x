@@ -1,2 +1,16 @@
-<h2>Ola Home - index</h2>
-<p>Iniciando pagina</p>
+
+
+<div class="container">
+<h2>Ola! aqui as top tags mais utilizadas:</h2>
+  <%  @tags_data.sort.reverse.to_h.each do |tag_name, count| %>
+    
+    <% font_size = count * 10 %>
+
+    <span style='display:flex; width: 100%; font-size: <%= font_size > 70 ? 70 : font_size %>px'>
+      <marquee behavior="" direction="" scrolldelay="<%= font_size %>">
+        <%= link_to tag_name.capitalize, contents_path(tags: [tag_name]), style: 'text-decoration: none' %>
+      </marquee>
+    </span>
+  <% end %>
+</div>
+
